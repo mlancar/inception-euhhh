@@ -5,15 +5,20 @@ sleep 10
 # cd /var/www/html/wordpress
 # if ! wp-cli.phar core is-installed; then
 wp-cli.phar cli update  --yes \
-						--allow-root
+						--allow-root && echo update success 1
 
 wp-cli.phar core download --allow-root
 
-/usr/local/bin/wp-cli.phar config create	--allow-root --debug\
+# echo 	QWJROQWEJHROQWEJRQWEJRQWOERJWQEO $SQL_DATABASE \
+# 	$SQL_USER \
+# 	$SQL_PASSWORD \
+# 	$SQL_HOSTNAME 
+
+/usr/local/bin/wp-cli.phar config create	--allow-root\
 					--dbname=$SQL_DATABASE \
 					--dbuser=$SQL_USER \
 					--dbpass=$SQL_PASSWORD \
-					--dbhost=mariadb:3306 #--path='/var/www/html/wordpress'
+					--dbhost=$SQL_HOSTNAME #--path='/var/www/html/wordpress'
 					# --config-file=/var/www/html/wordpress
 
 /usr/local/bin/wp-cli.phar core install	--allow-root \

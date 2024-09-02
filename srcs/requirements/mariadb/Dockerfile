@@ -26,3 +26,9 @@ EXPOSE		3306
 
 ENTRYPOINT	["sh" , "./setup_mariadb.sh"]
 
+    # healthcheck:
+    #   test: ["CMD", "mysqladmin", "ping", "--silent"]
+    #   interval: 10s
+    #   timeout: 10s
+    #   retries: 10
+    #   start_period: 10s
