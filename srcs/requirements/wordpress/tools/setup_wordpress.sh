@@ -9,7 +9,7 @@ wp-cli.phar cli update  --yes \
 
 wp-cli.phar core download --allow-root
 
-/usr/local/bin/wp-cli.phar config create	--allow-root \
+/usr/local/bin/wp-cli.phar config create	--allow-root --debug\
 					--dbname=$SQL_DATABASE \
 					--dbuser=$SQL_USER \
 					--dbpass=$SQL_PASSWORD \

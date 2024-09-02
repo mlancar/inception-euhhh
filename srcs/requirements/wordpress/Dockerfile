@@ -8,8 +8,9 @@ RUN apk update && apk upgrade && apk add \
         php82-fpm \
         php82-mysqli \
         php82-phar    \
-        mariadb-client  
-        # default-mysql-client
+        mariadb-client  \
+        mariadb         \
+        openrc 
 
 RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
 	&& chmod +x wp-cli.phar \
