@@ -15,9 +15,9 @@ RUN openrc
 
 RUN touch /run/openrc/softlevel
 
-RUN rm -f /etc/mariadb/mariadb.conf
+RUN rm -f /etc/my.cnf.d/mariadb-server.cnf
 
-COPY		./conf/mariadb.conf /etc/mariadb/mariadb.conf
+COPY		./conf/mariadb.cnf /etc/my.cnf.d/mariadb.cnf
 COPY		./tools/setup_mariadb.sh ./setup_mariadb.sh
 
 RUN			chmod -R +x ./setup_mariadb.sh
@@ -25,10 +25,3 @@ RUN			chmod -R +x ./setup_mariadb.sh
 EXPOSE		3306
 
 ENTRYPOINT	["sh" , "./setup_mariadb.sh"]
-
-    # healthcheck:
-    #   test: ["CMD", "mysqladmin", "ping", "--silent"]
-    #   interval: 10s
-    #   timeout: 10s
-    #   retries: 10
-    #   start_period: 10s

@@ -1,5 +1,7 @@
 all: up
 
+re: fclean all
+
 up: folder
 	 docker compose -f ./srcs/docker-compose.yml up --build -d
 
@@ -16,7 +18,7 @@ start:
 stop:
 	docker compose -f ./srcs/docker-compose.yml stop
 
-clean:
+clean: down
 	sudo rm -rf /home/malancar/data
 
 fclean: clean

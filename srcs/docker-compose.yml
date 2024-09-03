@@ -12,7 +12,13 @@ services:
      - mariadb:/var/lib/mysql
     restart: on-failure
     expose:
-     - "3306"
+     - "3306"   
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "--silent"]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+      start_period: 10s
     # ports:
     #  - "3306:3306"
 
@@ -29,9 +35,10 @@ services:
     build: 
       context: requirements/nginx/.
     env_file: .env
-    # ports:
-    #   - "443:443"
+    ports:
+      - "443:443"
     restart: on-failure
+    #healthcheck depends on wordpress
   
   wordpress:
     container_name: wordpress
@@ -43,8 +50,8 @@ services:
     build:
       context: requirements/wordpress
     depends_on:
-      - mariadb
-        # condition: service_healthy
+      mariadb:
+        condition: service_healthy
     restart: on-failure
     expose:
       - "9000"
