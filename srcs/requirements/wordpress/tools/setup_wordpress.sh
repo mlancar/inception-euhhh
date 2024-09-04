@@ -42,17 +42,17 @@ PHP
 			--user_pass=${USER1_PASS} ;
 
 
-/usr/local/bin/wp-cli.phar cache flush --allow-root
+# /usr/local/bin/wp-cli.phar cache flush --allow-root
 
-/usr/local/bin/wp-cli.phar plugin install contact-form-7 --activate
+# /usr/local/bin/wp-cli.phar plugin install contact-form-7 --activate
 
-/usr/local/bin/wp-cli.phar language core install en_US --activate
+# /usr/local/bin/wp-cli.phar language core install en_US --activate
 
-/usr/local/bin/wp-cli.phar theme delete twentynineteen twentytwenty
-/usr/local/bin/wp-cli.phar plugin delete hello
+# /usr/local/bin/wp-cli.phar theme delete twentynineteen twentytwenty
+# /usr/local/bin/wp-cli.phar plugin delete hello
 
-/usr/local/bin/wp-cli.phar rewrite structure '/%postname%/'
-
+# /usr/local/bin/wp-cli.phar rewrite structure '/%postname%/'
+ls /var/www/html/wordpress
 # fi
 
 if [ ! -d /run/php ]; then
