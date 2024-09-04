@@ -53,8 +53,6 @@ services:
       mariadb:
         condition: service_healthy
     restart: on-failure
-    expose:
-      - "9000"
 
 volumes:
   mariadb:
