@@ -26,19 +26,10 @@ wp-cli.phar user create		--allow-root \
 			--role=author \
 			--user_pass=${USER1_PASS} ;
 
-
-# wp-cli.phar cache flush --allow-root
-
-# wp-cli.phar plugin install contact-form-7 --activate
-
-# wp-cli.phar language core install en_US --activate
-
 wp-cli.phar theme install twentytwentytwo --activate --allow-root
-# wp-cli.phar plugin delete hello
 
-# wp-cli.phar rewrite structure '/%postname%/'
 ls /var/www/html/wordpress
-chow -R www-data:www-data /var/www/html/*
+chown -R www-data:www-data /var/www/html/*
 # fi
 
 if [ ! -d /run/php ]; then
