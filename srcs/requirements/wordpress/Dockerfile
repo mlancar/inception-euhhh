@@ -42,6 +42,6 @@ COPY ./conf/wordpress.conf /etc/php82/php-fpm.d/www.conf
 
 RUN chmod 755 /etc/php82/php-fpm.d/www.conf
 
-RUN ln -s /usr/bin/php82 /usr/bin/php
+RUN ln -sf /usr/bin/php82 /usr/bin/php
 
 ENTRYPOINT ["sh", "./setup_wordpress.sh"]

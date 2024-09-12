@@ -1,7 +1,8 @@
 
 # sleep 10
 cd /var/www/html/wordpress
-# if ! wp-cli.phar core is-installed; then
+if ! wp-cli.phar core is-installed; then
+echo TEST
 wp-cli.phar cli update  --yes \
 						--allow-root && echo update success 1
 
@@ -30,7 +31,7 @@ wp-cli.phar theme install twentytwentytwo --activate --allow-root
 
 ls /var/www/html/wordpress
 chown -R www-data:www-data /var/www/html/*
-# fi
+fi
 
 if [ ! -d /run/php ]; then
 	mkdir /run/php;
